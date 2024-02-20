@@ -1,83 +1,123 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Contenido</title>
-    
-</head>
-    
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Estilos CSS */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #97C1A4;
+        }
+.title-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
+    padding: 10px 20px; /* Relleno alrededor del título */
+    border-radius: 8px; /* Bordes redondeados */
+    margin-bottom: 30px; /* Espacio inferior */
+    text-align: center; /* Alineación centrada */
+}
 
+        .header-icons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            color: #fff;
+        }
+
+        .header-icons i {
+            font-size: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .header-logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .header-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 100px; /* Ajuste para evitar que los elementos se solapen con el header */
+        }
+
+        .card {
+            width: 30%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+        }
+
+        .card a {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .card a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
 <body>
+    <!-- Header Icons -->
     <div class="header-icons">
-        <a href="/users/{{user.dataValues.id}}"> <i class="fas fa-arrow-left"></i></a> 
-        <a href="/logout"><i class="fas fa-door-open"></i></a> 
+        <a href="/users/{{user.dataValues.id}}"> <i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        <a href="/logout"><i class="fas fa-door-open" style="color: #000;"></i></a>
     </div>
+
+    <!-- Header Logo -->
+    <div class="header-logo">
+        <img src="/img/logo.jpeg" alt="Logo">
+
+    </div>
+
+    <!-- Contenido -->
+    <div class="title-container">
     <h1>Gestión de Contenido</h1>
+</div>
+
     <div class="cards-container">
         <div class="card">
             <h2>Información</h2>
             <p>Administra la información del sitio.</p>
-            <a href="/informacion">Ir a Información</a>
+            <a href="/informacion" style="background-color: #28a745;">Ir a Información</a>
         </div>
         <div class="card">
             <h2>Foros</h2>
             <p>Gestiona los foros de discusión.</p>
-            <a href="/foros">Ir a Foros</a>
+            <a href="/foros" style="background-color: #dc3545;">Ir a Foros</a>
         </div>
         <div class="card">
             <h2>Actividades</h2>
             <p>Administra las actividades disponibles.</p>
-            <a href="/actividad">Ir a Actividades</a>
+            <a href="/actividad" style="background-color: #ffc107;">Ir a Actividades</a>
         </div>
     </div>
 </body>
 </html>
-
-<style>
-    .cards-container {
-    display: flex;
-    justify-content: space-around;
-}
-
-.card {
-    width: 30%;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 20px;
-}
-
-.card h2 {
-    margin-bottom: 10px;
-}
-
-.card p {
-    margin-bottom: 15px;
-}
-
-.card a {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-}
-
-.card a:hover {
-    background-color: #0056b3;
-}
-.header-icons {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000; /* Asegura que los íconos estén por encima del contenido */
-}
-
-.header-icons i {
-    font-size: 24px;
-    margin: 0 10px;
-    cursor: pointer; /* Cambia el cursor al pasar sobre los íconos */
-}
-</style>

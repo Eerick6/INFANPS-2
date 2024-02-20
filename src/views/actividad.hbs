@@ -1,18 +1,13 @@
-<html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actividades Interactivas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-    <div class="header-icons">
-        <a href="/gestionContenido"> <i class="fa-solid fa-arrow-left" ></i></a> 
-        <a href="/logout"><i class="fas fa-door-open"></i></a> 
-    </div>
     <!-- Formulario para agregar nueva información de seguridad -->
-   <h1>Crear Nueva Actividad</h1>
-   <div>
+   
+   <div class="contenedor-actividad">
+    <h1>Crear Nueva Actividad</h1>
      <form action="/actividad/crear" method="POST">
         <label for="titulo">Título:</label>
         <input type="text" id="titulo" name="titulo" required>
@@ -34,9 +29,9 @@
             <h2>{{this.dataValues.titulo}}</h2>
             <p><strong>Descripcion:</strong> {{this.dataValues.descripcion}}</p>
             <p><strong>Multimedia:</strong> {{this.dataValues.multimedia}}</p>
-             <a href="/actividad/{{ this.dataValues.id }}/editar"><button>Editar Información </button></a>
+             <a href="/actividad/{{ this.dataValues.id }}/editar"><button>Editar</button></a>
           <form action="/actividad/eliminar/{{ this.dataValues.id }}" method="DELETE">
-            <button type="submit">Eliminar Información de Seguridad</button>
+            <button type="submit">Eliminar</button>
         </form>
         </div>
         {{/each}}
@@ -45,44 +40,197 @@
     </div>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .info-card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            padding: 20px;
-        }
-        .info-card h2 {
-            margin-top: 0;
-        }
-        .info-card p {
-            margin: 10px 0;
-        }
-        .header-icons {
-        position: fixed;
-        top: 20px;
-        right: 10px;
-        z-index: 1000; /* Asegura que los íconos estén por encima del contenido */
-        }
+      /* Estilos generales */
+body {
+    font-family: Arial, sans-serif; /Estilo de letra/
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
 
-        .header-icons i {
-        font-size: 24px;
-        margin: 0 10px;
-        cursor: pointer; /* Cambia el cursor al pasar sobre los íconos */
-        }
+.contenedor-actividad {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-    </style>
+.contenedor-actividad h1 {
+    font-size: 32px; /* Aumentamos el tamaño de la fuente */
+    margin-bottom: 20px;
+    color: #8fc9cb; /* Color azul */
+    text-align: center; /* Centramos el texto */
+    text-transform: uppercase; /* Convertimos el texto a mayúsculas */
+    
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); 
+}
+
+.contenedor-actividad form {
+    text-align: center;
+    background-color: #f9f9f9; /* Color de fondo */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.contenedor-actividad label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold; /* Texto en negrita */
+    color: black; /* Color del texto */
+}
+
+.contenedor-actividad input[type="text"],
+.contenedor-actividad textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #8fc9cb; /* Borde */
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+.contenedor-actividad input[type="text"]:focus,
+.contenedor-actividad textarea:focus {
+    outline: none; /* Quita el contorno al hacer foco */
+    border-color: #8fc9cb; /* Cambia el color del borde al hacer foco */
+}
+
+.contenedor-actividad button[type="submit"] {
+    width: 100%;
+    padding: 14px 0;
+    background-color: #8fc9cb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.contenedor-actividad button[type="submit"]:hover {
+    background-color: #8fc9cb; /* Cambio de color al pasar el ratón */
+}
+
+.contenedor-actividad button[type="submit"] {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #8fc9cb;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contenedor-actividad button[type="submit"]:hover {
+    background-color: #8fc9cb;
+}
+/* Estilos del contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del título "Crear Nueva Actividad" */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos del formulario */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+button[type="submit"],
+.info-card a button,
+.info-card form button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.info-card a button {
+    background-color:#8fc9cb;
+    color: #fff;
+}
+
+.info-card form button[type="submit"] {
+    background-color:  #b7cfb7;
+    color: #fff;
+}
+
+button[type="submit"]:hover,
+.info-card a button:hover,
+.info-card form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Estilos del contenedor independiente */
+.cuadro-independiente {
+    margin-top: 40px;
+}
+
+/* Estilos del título "Actividades" dentro del contenedor independiente */
+.cuadro-independiente h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #8fc9cb;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos de la tarjeta de información */
+.info-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+/* Estilos del título dentro de la tarjeta de información */
+.info-card h2 {
+    margin-top: 0;
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+ </style>
