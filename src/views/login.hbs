@@ -6,6 +6,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 
+    <style>
+        .bi-person-circle {
+            position: absolute;
+            color: #B7E0D2;
+            top: 27px;
+            font-size: 19px;
+            left: 158px;
+
+        }
+
+        .bi-key-fill {
+            position: absolute;
+            bottom: 13px;
+            color: #B7E0D2;
+            left: 155px;
+            font-size: 25px;
+        }
+
+        .bi-person {
+            position: absolute;
+            font-size: 80px;
+            top: 25px;
+            color: #B7E0D2;
+        }
+
+        .texto {
+            position: relative;
+            top: 90px;
+
+        }
+
+        .boton {
+            position: relative;
+            top: 70px;
+            background-color: #B7E0D2;
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            border-color: #B7CFB7;
+            position: relative;
+            left: 47px;
+            width: 140px;
+            height: 45px;
+            text-align: center;
+            border-radius: 15px;
+            font-size: 15px;
+
+        }
+
+        .boton:hover {
+            background-color: #D4F0F1;
+            /* Color al pasar el ratón sobre el botón */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            /* Sombra interior de los campos de entrada */
+            border-color: #B7CFB7;
+            border-radius: 15px;
+
+
+        }
+
+        .h2 {
+            position: relative;
+            top: 70px;
+        }
+
+        .form-group {
+            position: relative;
+            top: 80px;
+            left: 30px;
+            border-color: #B7CFB7;
+
+
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+        }
+
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: flex;
+            width: 700px;
+            height: 470px;
+            position: relative;
+        }
+
+        #left-half,
+        #right-half {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #left-half {
+
+            background: linear-gradient(to top, #809CCE, #B7E0D2);
+            /* Color de la mitad izquierda (verde) */
+            color: white;
+        }
+
+        #right-half {
+            background: #97C1A4;
+            /* Color de la mitad derecha (azul) */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+
+
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+
+        }
+
+        label,
+        input {
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+
+
+        a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,6 +169,7 @@
 
         <div id="left-half">
             <h2 class="h2">INICIAR SESIÓN</h2>
+            <!-- If statement con handlebars -->
             {{#if message}}
             <div class="alert alert-danger" role="alert">
                 {{message}}
@@ -36,162 +193,10 @@
         </div>
         <div id="right-half">
             <h2>Bienvenido a INFANPS</h2>
+            <!-- Logo -->
+            <img src="/logo.jpeg" alt="Logo" style="width: 100px; height: auto;">
         </div>
     </div>
 </body>
 
 </html>
-
-<style>
-    .bi-person-circle {
-        position: absolute;
-        color: #B7E0D2;
-        top: 27px;
-        font-size: 19px;
-        left: 158px;
-
-    }
-
-    .bi-key-fill {
-        position: absolute;
-        bottom: 13px;
-        color: #B7E0D2;
-        left: 155px;
-        font-size: 25px;
-    }
-
-    .bi-person {
-        position: absolute;
-        font-size: 80px;
-        top: 25px;
-        color: #B7E0D2;
-    }
-
-    .texto {
-        position: relative;
-        top: 90px;
-
-    }
-
-    .boton {
-        position: relative;
-        top: 70px;
-        background-color: #B7E0D2;
-        color: #ffffff;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        border-color: #B7CFB7;
-        position: relative;
-        left: 47px;
-        width: 140px;
-        height: 45px;
-        text-align: center;
-        border-radius: 15px;
-        font-size: 15px;
-
-    }
-
-    .boton:hover {
-        background-color: #D4F0F1;
-        /* Color al pasar el ratón sobre el botón */
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        /* Sombra interior de los campos de entrada */
-        border-color: #B7CFB7;
-        border-radius: 15px;
-
-
-    }
-
-    .h2 {
-        position: relative;
-        top: 70px;
-    }
-
-    .form-group {
-        position: relative;
-        top: 80px;
-        left: 30px;
-        border-color: #B7CFB7;
-
-
-    }
-
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: white;
-    }
-
-    .container {
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
-        display: flex;
-        width: 700px;
-        height: 470px;
-        position: relative;
-    }
-
-    #left-half,
-    #right-half {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-    }
-
-    #left-half {
-
-        background: linear-gradient(to top, #809CCE, #B7E0D2);
-        /* Color de la mitad izquierda (verde) */
-        color: white;
-    }
-
-    #right-half {
-        background: #97C1A4;
-        /* Color de la mitad derecha (azul) */
-        color: white;
-
-    }
-
-    form {
-        display: flex;
-        flex-direction: column;
-        width: 80%;
-
-
-    }
-
-    .form-group {
-        margin-bottom: 15px;
-
-    }
-
-    label,
-    input {
-        margin-bottom: 10px;
-    }
-
-    input {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-
-
-
-    a {
-        text-decoration: none;
-        color: #ffffff;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-</style>

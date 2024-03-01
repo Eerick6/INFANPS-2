@@ -10,7 +10,7 @@ const MySQLStore = require('express-mysql-session')(session);
 const bodyparser = require('body-parser');
 const fileUpload = require("express-fileupload");
 const helmet = require('helmet');
-const multer  = require('multer');
+const multer = require('multer');
 
 // Importar módulos locales
 const { MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, MYSQLDATABASE, MYSQLPORT } = require("./keys");
@@ -52,7 +52,7 @@ app.post('/upload', upload.single('multimedia'), (req, res) => {
     // El archivo se encuentra en req.file
     // Puedes procesarlo como desees, por ejemplo, guardarlo en la base de datos o en el sistema de archivos
     res.send('Archivo subido exitosamente');
-  });
+});
 app.use(fileUpload({ createParentPath: true }));
 app.use(morgan('dev'));
 app.use(bodyparser.urlencoded({ extended: false }));
@@ -90,7 +90,7 @@ app.use((req, res, next) => {
 app.use(helmet());
 
 // Configurar archivos estáticos
-app.use(express.static(path.join(__dirname, 'uploads')));
+app.use(express.static('publics'));
 
 // Rutas - Definir tus rutas aquí
 const authRoutes = require('./routes/authRoutes');
