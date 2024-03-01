@@ -1,16 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil de Usuario</title>
-    <!-- Aquí puedes incluir tus estilos CSS -->
-</head>
+    <style>
+        /* Estilos para el contenedor principal */
+        .container {
+            display: flex;
+            height: 100vh; /* Establece la altura del contenedor al 100% del viewport height */
+            background-color: #97C1A4; /* Color de fondo del contenedor */
+        }
 
+        /* Estilos para la barra lateral */
+        .sidebar {
+            width: 200px; /* Ancho de la barra lateral */
+            background-color: #4866a7; /* Color de fondo de la barra lateral */
+            color: #fff; /* Color del texto */
+            margin: -10px;
+        }
+
+        .sidebar ul {
+            list-style-type: none; /* Quita los puntos de la lista */
+            padding: 10px;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+        }
+
+        .sidebar ul a {
+            color: #fff; /* Color del enlace */
+            text-decoration: none; /* Quita el subrayado */
+        }
+
+        .sidebar ul li:hover {
+            background-color: #809CCE; /* Color de fondo al pasar el ratón sobre el enlace */
+        }
+
+        /* Estilos para la contenido principal */
+        .main-content {
+            flex: 1; /* El contenido principal ocupa todo el espacio restante */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Estilos para la barra de título */
+        .main-content h1 {
+            background-color: #4866a7; /* Color de fondo de la barra de título */
+            color: #fff; /* Color del texto */
+            padding: 10px; /* Espaciado interno */
+            margin: 0; /* Elimina los márgenes por defecto */
+            border-radius: 5px; /* Bordes redondeados */
+            text-align: center; /* Centra horizontalmente */
+            width: fit-content; /* Ancho ajustado al contenido */
+            margin-bottom: 20px; /* Espacio inferior */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+        }
+
+        /* Estilos para la caja general de datos */
+        .data-container {
+            background-color: #d6e7f9; /* Color de fondo de la caja */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+            width: 80%; /* Ancho del 80% del contenedor */
+            max-width: 800px; /* Ancho máximo */
+        }
+
+        /* Estilos para la caja individual de datos */
+        .data-box {
+            background-color: #fff; /* Color de fondo de la caja */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+            text-align: left; /* Alineación a la izquierda */
+            width: calc(100% - 40px); /* Ancho del 100% menos el padding horizontal */
+            margin-bottom: 20px; /* Espacio inferior */
+        }
+
+        /* Estilos para los detalles del perfil */
+        .data-box p {
+            color: #333; /* Color del texto */
+            margin-bottom: 10px; /* Espacio inferior */
+        }
+    </style>
+</head>
 <body>
-<div class="container">
-   <nav class="sidebar">
+    <div class="container">
+        <nav class="sidebar">
             <ul>
                 <a href="/users/{{user.dataValues.id}}"><li>Perfil</li></a>
                 <a href="/users/{{user.dataValues.id}}/editar"><li>Configuración</li></a>
@@ -18,75 +98,27 @@
                 <a href="/gestionContenido"><li>Gestión Contenido</li></a>
             </ul>
         </nav>
-     <div class="main-content">
-    <h1>Perfil de Usuario</h1>
-    <div>
-        <p><strong>Nombre de Usuario:</strong> {{ user.dataValues.username }}</p>
-        <p><strong>Nombre:</strong> {{ user.dataValues.name }}</p>
-        <p><strong>Apellido:</strong> {{ user.dataValues.lastName }}</p>
-        <p><strong>Correo Electrónico:</strong> {{ user.dataValues.email }}</p>
-        <p><strong>Teléfono:</strong> {{ user.dataValues.phone }}</p>
-        <!-- Puedes incluir más detalles del perfil aquí -->
+        <div class="main-content">
+            <h1>Perfil de Usuario</h1>
+            <div class="data-container">
+                <div class="data-box">
+                    <p><strong>Nombre de Usuario:</strong> {{ user.dataValues.username }}</p>
+                </div>
+                <div class="data-box">
+                    <p><strong>Nombre:</strong> {{ user.dataValues.name }}</p>
+                </div>
+                <div class="data-box">
+                    <p><strong>Apellido:</strong> {{ user.dataValues.lastName }}</p>
+                </div>
+                <div class="data-box">
+                    <p><strong>Correo Electrónico:</strong> {{ user.dataValues.email }}</p>
+                </div>
+                <div class="data-box">
+                    <p><strong>Teléfono:</strong> {{ user.dataValues.phone }}</p>
+                </div>
+                <!-- Puedes incluir más detalles del perfil aquí -->
+            </div>
+        </div>
     </div>
-    </div>
-    
-</div>
 </body>
-
 </html>
-
-
-
-<style>
-
-/* Estilos para el contenedor principal */
-.container {
-    display: flex;
-    height: 100vh; /* Establece la altura del contenedor al 100% del viewport height */
-}
-
-/* Estilos para el menú lateral */
-.sidebar {
-    width: 200px; /* Ancho del menú lateral */
-    background-color: #017f9e; /* Color de fondo del menú */
-    color: #fff; /* Color del texto */
-    margin: -10px;
-}
-
-.sidebar ul {
-    list-style-type: none; /* Quita los puntos de la lista */
-    padding: 10px;
-}
-
-.sidebar ul li {
-    padding: 10px;
-}
-
-.sidebar ul a {
-    color: #fff; /* Color del enlace */
-    text-decoration: none; /* Quita el subrayado */
-}
-
-.sidebar ul li:hover {
-    background-color: #4866a7; /* Color de fondo al pasar el ratón sobre el enlace */
-}
-
-/* Estilos para el contenido principal */
-.main-content {
-    flex: 1; /* El contenido principal ocupa todo el espacio restante */
-    padding: 20px;
-}
-
-</style>
-    <script>
-        const sidebar = document.getElementById('sidebar');
-        const container = document.querySelector('.container');
-
-        sidebar.addEventListener('mouseenter', () => {
-            container.classList.add('sidebar-open');
-        });
-
-        sidebar.addEventListener('mouseleave', () => {
-            container.classList.remove('sidebar-open');
-        });
-    </script>

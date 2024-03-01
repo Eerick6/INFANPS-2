@@ -5,100 +5,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Actividad</title>
-
-    </style>
+    <!-- Enlace al archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
-<div class="header-icons">
-        <a href="/actividad"> <i class="fa-solid fa-arrow-left"></i></a> 
-        <a href="/logout"><i class="fas fa-door-open"></i></a> 
-    </div>
-    <h1>EDITAR ACTIVIDAD</h1>
+    <div class="container mt-5">
+        <div class="header-icons">
+            <a href="/actividad"> <i class="fa-solid fa-arrow-left"></i></a>
+            <a href="/logout"><i class="fas fa-door-open"></i></a>
+        </div>
+        <h1 class="mb-4"><strong>EDITAR ACTIVIDAD <i class="bi bi-brush"></i></strong></h1>
 
         <form action="/actividad/{{ actividad.dataValues.id }}/editar" method="POST">
-        <input type="hidden" name="_method" value="PUT"> <!-- Para indicar que es una solicitud de actualización -->
-        <label for="titulo">Título:</label>
-        <input type="text" id="titulo" name="titulo" value="{{ actividad.dataValues.titulo }}">
-        <label for="descripcion">Contenido:</label>
-        <textarea id="descripcion" name="descripcion">{{ actividad.dataValues.descripcion }}</textarea>
-        <label for="multimedia">Multimedia:</label>
-        <input type="text" id="multimedia" name="multimedia" value="{{ actividad.dataValues.multimedia }}">
-        <button type="submit">Guardar Cambios</button>
+            <input type="hidden" name="_method" value="PUT">
+
+            <div class="form-group">
+
+                <label for="titulo" class="button-like"><strong>Título: <i
+                            class="bi bi-chat-left-text-fill"></i></strong></label>
+                <input type="text" class="form-control" id="titulo" name="titulo"
+                    value="{{ actividad.dataValues.titulo }}">
+            </div>
+            <div class="form-group">
+                <label for="descripcion" class="button-like"><strong>Descripción: <i
+                            class="bi bi-file-font-fill"></i></strong></label>
+                <textarea class="form-control" id="descripcion"
+                    name="descripcion">{{ actividad.dataValues.descripcion }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="multimedia" class="button-like"><strong>Multimedia: <i
+                            class="bi bi-plus-circle-fill"></i></strong></label>
+                <input type="text" class="form-control" id="multimedia" name="multimedia"
+                    value="{{ actividad.dataValues.multimedia }}">
+            </div>
+            <button type="submit" class="btn btn-primary"><strong>Guardar Cambios</strong></button>
         </form>
+        <!-- Script de Bootstrap al final del cuerpo del documento -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
+</html>
+
+
 <style>
+    /* Estilo para el label como botón 1  */
+    label.button-like {
+        display: inline-block;
+        padding: 5px 50px;
+        margin-bottom: 15px;
+        background: #8FC9CB;
+        /* Color de fondo del botón */
+        color: #000000;
+        /* Color del texto del botón */
+        border: 1px solid #b7cfb7;
+        /* Borde del botón */
+        border-radius: 5px;
+        /* Bordes redondeados */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* Sombra */
+        cursor: pointer;
+        /* Cambia el cursor al pasar sobre el botón */
+        transition: background-color 0.3s ease, color 0.3s ease;
+        /* Transición de color de fondo y texto */
+
+    }
+
+    label.button-like:hover {
+        background: linear-gradient(to right, #d6eadf, #ffffff);
+        /* Cambia el color de fondo al pasar el mouse sobre el botón */
+        border-color: #D6EADF;
+        /* Cambia el color del borde al pasar el mouse sobre el botón */
+        color: #000000;
+        /* Cambia el color del texto al pasar el mouse sobre el botón */
+    }
+
+    /* BORDES DE  CUADROS*/
+    #titulo,
+    #descripcion,
+    #multimedia {
+        border: 1px solid #809CCE;
+        /* Borde del elemento */
+        border-radius: 5px;
+        /* Bordes redondeados */
+        padding: 10px;
+        /* Relleno interno */
+        margin-bottom: 15px;
+        /* Espaciado inferior */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* Sombra */
+        transition: border-color 0.3s ease;
+        /* Transición de color del borde */
+    }
+
+    #titulo:focus,
+    #descripcion:focus,
+    #multimedia:focus {
+        border-color: #000000;
+        /* Cambia el color del borde al enfocar el elemento */
+        background: linear-gradient(to right, #cfcfcf, #ffffff);
+    }
+
+    .form-control {
+        transition: border-color 0.3s ease;
+        /* Transición de color del borde para elementos con la clase form-control */
+    }
+
+    h1.mb-4 {
+        color: #8FC9CB;
+        /* Color del texto */
+        font-size: 30px;
+        /* Tamaño de la fuente */
+        text-align: center;
+        /* Alineación del texto */
+        margin-bottom: 20px;
+        /* Espaciado inferior */
+        padding-bottom: 10px;
+        /* Espaciado inferior adicional */
+        transition: color 1.5s ease, transform 1.8s ease;
+        /* Transición de color y transformación */
+        border-radius: 15px;
+        padding: 10px;
+        width: 80%;
+        margin: 10;
+        position: relative;
+        left: 100px;
+    }
+
+    h1.mb-4:hover {
+        color: #8FC9CB;
+        /* Cambia el color al pasar el mouse sobre el elemento */
+        transform: scale(1.1);
+        /* Agranda el texto al pasar el mouse sobre el elemento */
+    }
+
+    body {
+        background: #B7E0D2;
+        font-family: Arial, sans-serif;/Estilo de letra/ color: #5333;
+    }
+
+    .container {
+        background-color: #ffffff;
+        /* Color de fondo del contenedor */
+        padding: 20px;
+        /* Añade relleno al contenedor */
+        border-radius: 10px;
+        /* Bordes redondeados */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+
+    form {
+        margin-top: 20px;
+        /* Espaciado superior del formulario */
+    }
+
+    button.btn-primary {
+        background-color: #8FC9CB;
+        /* Color del botón principal */
+        border: none;
+
+    }
+
+    button.btn-primary:hover {
+        background-color: #D4F0F1;
+        /* Color al pasar el ratón sobre el botón */
+    }
+
     .header-icons {
         position: fixed;
         top: 20px;
         right: 20px;
-        z-index: 1000; /* Asegura que los íconos estén por encima del contenido */
+        z-index: 1000;
+        /* Asegura que los íconos estén por encima del contenido */
+
     }
 
     .header-icons i {
         font-size: 24px;
         margin: 0 10px;
-        cursor: pointer; /* Cambia el cursor al pasar sobre los íconos */
+        cursor: pointer;
+        /* Cambia el cursor al pasar sobre los íconos */
+
     }
-</style>
-<style>
-/* Estilos del título */
-h1 {
-    font-size: 32px; /* Aumentamos el tamaño de la fuente */
-    margin-bottom: 20px;
-    color: #8fc9cb; /* Color azul */
-    text-align: center; /* Centramos el texto */
-    text-transform: uppercase; /* Convertimos el texto a mayúsculas */
-    
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); 
-}
-
-
-/* Estilos del formulario */
-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9; /* Color de fondo */
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
-}
-
-/* Estilos de las etiquetas */
-label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold; /* Texto en negrita */
-    color:  black; /* Color del texto */
-}
-
-/* Estilos de los campos de entrada */
-input[type="text"],
-textarea {
-    width: calc(100% - 22px); /* Ancho menos el ancho del borde y el relleno */
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid  #8fc9cb; /* Borde */
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-size: 16px; /* Tamaño de fuente */
-}
-
-/* Estilos del botón */
-button[type="submit"] {
-    width: 100%;
-    padding: 14px 0;
-    background-color:  #8fc9cb;;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-    background-color:  #8fc9cb; /* Cambio de color al pasar el ratón */
-}
 </style>

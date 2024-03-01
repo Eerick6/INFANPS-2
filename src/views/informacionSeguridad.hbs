@@ -13,83 +13,103 @@
 </head>
 
 <body>
+
     <div class="header-icons">
-        <a href="/gestionContenido"> <i class="fa-solid fa-arrow-left" ></i></a> 
-        <a href="/logout"><i class="fas fa-door-open"></i></a> 
+        <a href="/gestionContenido"> <i class="fa-solid fa-arrow-left"></i></a>
+        <a href="/logout"><i class="fas fa-door-open"></i></a>
     </div>
     <div class="container">
-       <h1 class="mb-4"><strong>CREAR NUEVA INFORMACIÓN SEGURIDAD</strong></h1>
+        <div class="horizontal-gradient">
 
-        <form action="/informacion/crear" method="POST">
-            <div class="form-group">
-                <label for="titulo" class="button-like" ><strong>Título:  <i class="bi bi-chat-left-text-fill"></i></i></strong></label>
-                <input type="text" class="form-control" id="titulo" name="titulo" required>
-  
-            </div>
-            <div class="form-group">
+            <h1 class="mb-4"><strong>CREAR NUEVA INFORMACIÓN SEGURIDAD</strong></h1>
+            <div class="container-form">
 
-                <label for="contenido" class="button-like"><strong>Contenido: <i class="bi bi-file-font-fill"></i> </strong></label>
-                <textarea class="form-control" id="contenido" name="contenido" rows="4" required></textarea>
-            </div>
-            <div class="form-group">
+                <form action="/informacion/crear" method="POST">
+                    <div class="form-group">
+                        <label for="titulo" class="button-like"><strong>Título: <i
+                                    class="bi bi-chat-left-text-fill"></i></i></strong></label>
+                        <input type="text" class="form-control" id="titulo" name="titulo" required>
 
-                <label for="multimedia" class="button-like"><strong>Multimedia: <i class="bi bi-plus-circle-fill"></i></strong></label>
-                <input type="text" class="form-control" id="multimedia" name="multimedia">
-            </div>
-            <button type="submit" class="btn btn-primary"><strong>Crear Información de Seguridad</strong></button>
-        </form>
+                    </div>
+                    <div class="form-group">
 
-        <h1 class="mt-5"></h1>
-        <div class="card-container">
-            {{#each informacionSeguridad}}
-            <div class="card mt-3">
-                <div class="card-body">
-                    <h2 class="card-title">{{this.dataValues.titulo}}</h2>
-                    <p class="card-text"><strong>Contenido:</strong> {{this.dataValues.contenido}}</p>
-                   <p class="card-text"><strong>Multimedia:</strong> {{this.dataValues.multimedia}}</p>
-                    <a href="/informacion/{{ this.dataValues.id }}/editar" class="btn btn-info"><strong>Editar Información  <i class="bi bi-brush-fill"></i></i></strong></a>
-                
-                    <form action="/informacion/eliminar/{{ this.dataValues.id }}" method="DELETE" class="d-inline">
-                        <button type="submit" class="btn btn-danger"><strong>Eliminar Información <i class="bi bi-trash-fill"></i></i></strong></button>
-                    </form>
+                        <label for="contenido" class="button-like"><strong>Contenido: <i
+                                    class="bi bi-file-font-fill"></i> </strong></label>
+                        <textarea class="form-control" id="contenido" name="contenido" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+
+                        <label for="multimedia" class="button-like"><strong>Multimedia: <i
+                                    class="bi bi-plus-circle-fill"></i></strong></label>
+                        <input type="text" class="form-control" id="multimedia" name="multimedia">
+                    </div>
+                    <button type="submit" class="btn btn-primary"><strong>Crear Información de
+                            Seguridad</strong></button>
+                </form>
+
+
+                <div class="card-container">
+                    {{#each informacionSeguridad}}
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <h2 class="card-title">{{this.dataValues.titulo}}</h2>
+                            <p class="card-text"><strong>Contenido:</strong> {{this.dataValues.contenido}}</p>
+                            <p class="card-text"><strong>Multimedia:</strong> {{this.dataValues.multimedia}}</p>
+                            <a href="/informacion/{{ this.dataValues.id }}/editar" class="btn btn-info"><strong>Editar
+                                    Información <i class="bi bi-brush-fill"></i></i></strong></a>
+
+                            <form action="/informacion/eliminar/{{ this.dataValues.id }}" method="DELETE"
+                                class="d-inline">
+                                <button type="submit" class="btn btn-danger"><strong>Eliminar Información <i
+                                            class="bi bi-trash-fill"></i></i></strong></button>
+                            </form>
+                        </div>
+                    </div>
+                    {{/each}}
                 </div>
-            </div>
-            {{/each}}
-        </div>
 
-        <!-- Agrega el enlace a Bootstrap JS y Popper.js al final del cuerpo del documento para un mejor rendimiento -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                <!-- Agrega el enlace a Bootstrap JS y Popper.js al final del cuerpo del documento para un mejor rendimiento -->
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
 <style>
-
-
     /* Contenedor para las tarjetas */
     .card-container {
-        display: flex; /* Utiliza flexbox */
-        flex-wrap: wrap; /* Envuelve hacia abajo cuando no hay espacio en la fila */
-        justify-content: space-around; /* Espacio entre las tarjetas */
-        
+        display: flex;
+        /* Utiliza flexbox */
+        flex-wrap: wrap;
+        /* Envuelve hacia abajo cuando no hay espacio en la fila */
+        justify-content: space-around;
+        /* Espacio entre las tarjetas */
+
     }
-     .card {
-        background: linear-gradient(to right, #e5e7e9, #ffffff);/* Color de fondo de las tarjetas */
+
+    .card {
+        background: linear-gradient(to right, #e5e7e9, #ffffff);
+        /* Color de fondo de las tarjetas */
         border: 1px solid #ddd;
         border-radius: 8px;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-        width: 400px; /* Ancho de la tarjeta */
-        margin: 10px; /* Márgenes entre las tarjetas */
-        border: 1px solid #ccc;/* Borde de la tarjeta */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);/* Sombra de la tarjeta */
-        transition: transform 0.3s ease-in-out; /* Transición de transformación */
-         font-size: 15px;
+        width: 400px;
+        /* Ancho de la tarjeta */
+        margin: 10px;
+        /* Márgenes entre las tarjetas */
+        border: 1px solid #ccc;
+        /* Borde de la tarjeta */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* Sombra de la tarjeta */
+        transition: transform 0.3s ease-in-out;
+        /* Transición de transformación */
+        font-size: 15px;
 
     }
 
     .card:hover {
-        transform: scale(1.05);  /* Escala de la tarjeta al pasar el mouse sobre ella */
+        transform: scale(1.05);
+        /* Escala de la tarjeta al pasar el mouse sobre ella */
     }
 
     /* Resto de los estilos... */
@@ -99,51 +119,76 @@
         display: inline-block;
         padding: 5px 50px;
         margin-bottom: 15px;
-        background:#8FC9CB;/* Color de fondo del botón */
-        color: #000000; /* Color del texto del botón */
-        border: 1px solid #b7cfb7;/* Borde del botón */
-        border-radius: 5px;/* Bordes redondeados */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);/* Sombra */
-        cursor: pointer;/* Cambia el cursor al pasar sobre el botón */
-        transition: background-color 0.3s ease, color 0.3s ease;/* Transición de color de fondo y texto */
+        background: #8FC9CB;
+        /* Color de fondo del botón */
+        color: #000000;
+        /* Color del texto del botón */
+        border: 1px solid #b7cfb7;
+        /* Borde del botón */
+        border-radius: 5px;
+        /* Bordes redondeados */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* Sombra */
+        cursor: pointer;
+        /* Cambia el cursor al pasar sobre el botón */
+        transition: background-color 0.3s ease, color 0.3s ease;
+        /* Transición de color de fondo y texto */
 
     }
 
     label.button-like:hover {
-        background: linear-gradient(to right, #d6eadf, #ffffff);/* Cambia el color de fondo al pasar el mouse sobre el botón */
-        border-color: #D6EADF;/* Cambia el color del borde al pasar el mouse sobre el botón */
-        color: #000000;/* Cambia el color del texto al pasar el mouse sobre el botón */
+        background: linear-gradient(to right, #d6eadf, #ffffff);
+        /* Cambia el color de fondo al pasar el mouse sobre el botón */
+        border-color: #D6EADF;
+        /* Cambia el color del borde al pasar el mouse sobre el botón */
+        color: #000000;
+        /* Cambia el color del texto al pasar el mouse sobre el botón */
     }
 
     /* BORDES DE  CUADROS*/
     #titulo,
     #contenido,
     #multimedia {
-        border: 1px solid #809CCE;/* Borde del elemento */
-        border-radius: 5px; /* Bordes redondeados */
-        padding: 10px; /* Relleno interno */
-        margin-bottom: 15px; /* Espaciado inferior */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
-        transition: border-color 0.3s ease; /* Transición de color del borde */
+        border: 1px solid #809CCE;
+        /* Borde del elemento */
+        border-radius: 5px;
+        /* Bordes redondeados */
+        padding: 10px;
+        /* Relleno interno */
+        margin-bottom: 15px;
+        /* Espaciado inferior */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* Sombra */
+        transition: border-color 0.3s ease;
+        /* Transición de color del borde */
     }
+
     #titulo:focus,
     #contenido:focus,
     #multimedia:focus {
-        border-color: #000000;/* Cambia el color del borde al enfocar el elemento */
+        border-color: #000000;
+        /* Cambia el color del borde al enfocar el elemento */
         background: linear-gradient(to right, #cfcfcf, #ffffff);
     }
 
     .form-control {
-        transition: border-color 0.3s ease;/* Transición de color del borde para elementos con la clase form-control */
+        transition: border-color 0.3s ease;
+        /* Transición de color del borde para elementos con la clase form-control */
     }
 
     h1.mb-4 {
-        color: #8FC9CB; /* Color del texto */
-        font-size: 30px; /* Tamaño de la fuente */
-        text-align: center; /* Alineación del texto */
-        margin-bottom: 20px; /* Espaciado inferior */
-        padding-bottom: 10px; /* Espaciado inferior adicional */
-        transition: color 1.5s ease, transform 1.8s ease; /* Transición de color y transformación */
+        color: #8FC9CB;
+        /* Color del texto */
+        font-size: 30px;
+        /* Tamaño de la fuente */
+        text-align: center;
+        /* Alineación del texto */
+        margin-bottom: 20px;
+        /* Espaciado inferior */
+        padding-bottom: 10px;
+        /* Espaciado inferior adicional */
+        transition: color 1.5s ease, transform 1.8s ease;
+        /* Transición de color y transformación */
         border-radius: 15px;
         padding: 10px;
         width: 80%;
@@ -151,32 +196,37 @@
         position: relative;
         left: 100px;
     }
+
     h1.mb-4:hover {
-        color: #8FC9CB;/* Cambia el color al pasar el mouse sobre el elemento */
-        transform: scale(1.1);/* Agranda el texto al pasar el mouse sobre el elemento */
+        color: #8FC9CB;
+        /* Cambia el color al pasar el mouse sobre el elemento */
+        transform: scale(1.1);
+        /* Agranda el texto al pasar el mouse sobre el elemento */
     }
 
     /* Estilo para el h1 con clase mt-5 */
     h1.mt-5 {
-        border-bottom: 2px solid #000000;/* Línea inferior */
+        border-bottom: 2px solid #1b1a1a;
+        /* Línea inferior */
 
     }
 
 
     body {
-         background: #fff;
+        background: #97C1A4;
         margin: 0;
         padding: 0;
-         font-family: Arial, sans-serif; /Estilo de letra/
-    color: #333;
+        font-family: Arial, sans-serif;/Estilo de letra/ color: #333;
     }
 
     .container {
         margin-top: 50px;
-        background-color: #fff;/* Color de fondo del contenedor */
+        background-color: #fff;
+        /* Color de fondo del contenedor */
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
     }
 
     .form-group {
@@ -184,43 +234,52 @@
     }
 
     .btn-primary {
-        background-color: #8FC9CB; /* Color del botón principal */
+        background-color: #8FC9CB;
+        /* Color del botón principal */
         border: none;
     }
 
     .btn-primary:hover {
-        background-color: #D4F0F1;/* Color al pasar el ratón sobre el botón */
+        background-color: #D4F0F1;
+        /* Color al pasar el ratón sobre el botón */
     }
 
     .btn-info {
-        background-color: #8FC9CB;/* Color del botón de información */
+        background-color: #8FC9CB;
+        /* Color del botón de información */
         border: none;
-          font-size: 13px;
+        font-size: 13px;
     }
 
     .btn-info:hover {
-        background-color: #D4F0F1; /* Color al pasar el ratón sobre el botón de información */
+        background-color: #D4F0F1;
+        /* Color al pasar el ratón sobre el botón de información */
     }
 
     .btn-danger {
-        background-color: #b7cfb7;/* Color del botón de peligro */
+        background-color: #b7cfb7;
+        /* Color del botón de peligro */
         border: none;
-          font-size: 13px;
+        font-size: 13px;
     }
 
     .btn-danger:hover {
-        background-color: #D6EADF; /* Color al pasar el ratón sobre el botón de peligro */
+        background-color: #D6EADF;
+        /* Color al pasar el ratón sobre el botón de peligro */
     }
+
     .header-icons {
-    position: fixed;
-    top: 20px;
-    right: 10px;
-    z-index: 1000; /* Asegura que los íconos estén por encima del contenido */
+        position: fixed;
+        top: 20px;
+        right: 10px;
+        z-index: 1000;
+        /* Asegura que los íconos estén por encima del contenido */
     }
 
     .header-icons i {
         font-size: 24px;
         margin: 0 10px;
-        cursor: pointer; /* Cambia el cursor al pasar sobre los íconos */
+        cursor: pointer;
+        /* Cambia el cursor al pasar sobre los íconos */
     }
 </style>
